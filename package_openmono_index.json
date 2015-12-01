@@ -1,0 +1,87 @@
+{
+	"packages":
+	[
+		{
+			"name": "OpenMono",
+			"maintainer": "Monolit ApS",
+			"websiteURL": "http://www.openmono.com/",
+			"email": "contact@openmono.com",
+			
+			"platforms": [
+				{
+					"name": "OpenMono",
+					"architecture": "mono",
+					"version": "1.0",
+					"category": "Contributed",
+					"help": {
+						"online": "http://www.openmono.com/"
+					},
+					"url": "http://localhost:8000/mono1.0.tar.bz2",
+					"archiveFileName": "mono1.0.tar.bz2",
+					"checksum": "MD5:c70c5df5993755dfc32cba49c94d2411",
+					"size": "16458566",
+					"boards": [
+						{"name": "Mono Basic"},
+						{"name": "Mono Wifi"},
+						{"name": "Mono Maker"}
+					],
+					"toolsDependencies": [
+						{ "packager": "arduino", "name": "arm-none-eabi-gcc", "version": "4.8.3-2014q1" },
+						{"packager": "OpenMono", "name": "monoprog", "version": "0.6"}
+					]
+				}
+			],
+
+			"tools": [
+				{
+					"name": "monoprog",
+					"version": "0.6",
+					"systems": [
+						{
+							"host": "x86_64-apple-darwin",
+							"url": "http://localhost:8000/monoprog0.6.tar.bz2",
+							"archiveFileName": "monoprog0.6.tar.bz2",
+							"checksum": "MD5:ffc8a23d4a899b65532b4cb2bb2526fd",
+							"size": "103866"
+						}
+					]
+				},
+				
+				{
+					"name": "arm-none-eabi-gcc",
+					"version": "4.9-2015q3",
+					"systems": [
+						{
+							"host": "i686-mingw32",
+							"archiveFileName": "gcc-arm-none-eabi-4_9-2015q3-20150921-win32.zip",
+							"url": "https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-win32.zip",
+							"checksum": "MD5:d944be40a5bdb2327d80db23290c6b9d",
+							"size": "98465351"
+						},
+						{
+							"host": "x86_64-apple-darwin",
+							"url": "https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-mac.tar.bz2",
+							"archiveFileName": "gcc-arm-none-eabi-4_9-2015q3-20150921-mac.tar.bz2",
+							"checksum": "MD5:7886163ba5a1c17b560939e3dcf1382b",
+							"size": "77455989"
+						},
+						{
+							"host": "x86_64-pc-linux-gnu",
+							"url": "https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2",
+							"archiveFileName": "gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2",
+							"checksum": "MD5:8a4a74872830f80c788c944877d3ad8c",
+							"size": "73710332"
+						},
+						{
+							"host": "i686-pc-linux-gnu",
+							"url": "https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2",
+							"archiveFileName": "gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2",
+							"checksum": "MD5:8a4a74872830f80c788c944877d3ad8c",
+							"size": "73710332"
+						}
+					]
+				}
+			]
+		}
+	]
+}
