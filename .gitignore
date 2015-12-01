@@ -1,3 +1,5 @@
 mono/cores/arduino_org
 mono/cores/arduino/mono
 mono/platform_sam.txt
+*.bz2
+monoprog
