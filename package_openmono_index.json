@@ -18,8 +18,8 @@
 					},
 					"url": "http://localhost:8000/mono1.0.tar.bz2",
 					"archiveFileName": "mono1.0.tar.bz2",
-					"checksum": "MD5:c70c5df5993755dfc32cba49c94d2411",
-					"size": "16458566",
+					"checksum": "MD5:edcdd8a439fefebfdaa772c306ec9ea9",
+					"size": "985634",
 					"boards": [
 						{"name": "Mono Basic"},
 						{"name": "Mono Wifi"},
@@ -27,7 +27,7 @@
 					],
 					"toolsDependencies": [
 						{ "packager": "arduino", "name": "arm-none-eabi-gcc", "version": "4.8.3-2014q1" },
-						{"packager": "OpenMono", "name": "monoprog", "version": "0.6"}
+						{"packager": "OpenMono", "name": "monoprog", "version": "0.7"}
 					]
 				}
 			],
@@ -43,6 +43,27 @@
 							"archiveFileName": "monoprog0.6.tar.bz2",
 							"checksum": "MD5:ffc8a23d4a899b65532b4cb2bb2526fd",
 							"size": "103866"
+						}
+					]
+				},
+				
+				{
+					"name": "monoprog",
+					"version": "0.7",
+					"systems": [
+						{
+							"host": "x86_64-apple-darwin",
+							"url": "http://localhost:8000/monoprog-mac0.7.tar.bz2",
+							"archiveFileName": "monoprog-mac0.7.tar.bz2",
+							"checksum": "MD5:f9c9fa067294221cb046462cfc90545f",
+							"size": "2512911"
+						},
+						{
+							"host": "i686-mingw32",
+							"url": "http://localhost:8000/monoprog-win0.7.tar.bz2",
+							"archiveFileName": "monoprog-win0.7.tar.bz2",
+							"checksum": "MD5:3db3b4c9f17c073aaeeedb497c31acb4",
+							"size": "2684744"
 						}
 					]
 				},

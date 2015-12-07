@@ -20,21 +20,28 @@ compiler.warning_flags.all=-Wall -Wextra
 
 compiler.path={runtime.tools.arm-none-eabi-gcc.path}/bin/
 compiler.c.cmd=arm-none-eabi-gcc
+compiler.c.cmd.windows=arm-none-eabi-gcc.exe
 compiler.c.flags= {ccFlags} -std=gnu99
 compiler.c.elf.cmd=arm-none-eabi-gcc
+compiler.c.elf.cmd.windows=arm-none-eabi-gcc.exe
 compiler.c.elf.flags=-Os -Wl,--gc-sections
 compiler.S.cmd=arm-none-eabi-gcc
 compiler.S.flags= -c -g -Wall -mcpu=cortex-m3 -mthumb -mthumb-interwork -march=armv7-m
 compiler.cpp.cmd=arm-none-eabi-g++
+compiler.cpp.cmd.windows=arm-none-eabi-g++.exe
 compiler.cpp.flags= {ccFlags} -std=gnu++98 -fno-rtti -fno-exceptions
 compiler.ar.cmd=arm-none-eabi-ar
+compiler.ar.cmd.windows=arm-none-eabi-ar.exe
 compiler.ar.flags=rcs
 compiler.objcopy.cmd=arm-none-eabi-objcopy
+compiler.objcopy.cmd.windows=arm-none-eabi-objcopy.exe
 compiler.objcopy.eep.flags=-O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0
 compiler.elf2hex.flags=-O binary
 compiler.elf2hex.cmd=arm-none-eabi-objcopy
+compiler.elf2hex.cmd.windows=arm-none-eabi-objcopy.exe
 compiler.ldflags=
 compiler.size.cmd=arm-none-eabi-size
+compiler.size.cmd.windows=arm-none-eabi-size.exe
 compiler.define=-DARDUINO=
 
 ## Compile c files
@@ -47,7 +54,7 @@ recipe.cpp.o.pattern="{compiler.path}{compiler.cpp.cmd}" {compiler.cpp.flags} -D
 recipe.S.o.pattern="{compiler.path}{compiler.S.cmd}" {compiler.c.flags} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} {build.extra_flags} {monoIncludes} "{source_file}" -o "{object_file}"
 
 ## Create archives
-recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} "{archive_file_path}" "{object_file}"
+recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} "{build.path}/{archive_file}" "{object_file}"
 
 ## Combine gc-sections, archives, and objects
 recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" -Wl,--start-group -o "{build.path}/{build.project_name}.elf" {object_files} {frameworks} {build.path}/{archive_file} -mthumb -march=armv7-m -mfix-cortex-m3-ldrd "-Wl,-Map,{build.path}/mono_project.map" -T {build.ldscript} -g -specs=nano.specs "-u\ _printf_float" {sysLibs} -Wl,--gc-sections -Wl,--end-group
@@ -59,8 +66,8 @@ recipe.size.regex=\.text\s+([0-9]+).*
 # MONOPROG
 
 tools.monoprog.path={runtime.tools.monoprog.path}
-tools.monoprog.cmd=monoprog
-tools.monoprog.cmd.windows=monoprog.exe
+tools.monoprog.cmd=run.sh
+tools.monoprog.cmd.windows=run.bat
 tools.monoprog.upload.params.verbose=1
 tools.monoprog.upload.params.quiet=0
-tools.monoprog.upload.pattern="{path}/{cmd}" --verbose={upload.verbose} -p "{build.path}/{build.project_name}.elf"
+tools.monoprog.upload.pattern="{path}/{cmd}" {runtime.tools.monoprog.path} --verbose={upload.verbose} -p "{build.path}/{build.project_name}.elf"
