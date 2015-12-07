@@ -11,11 +11,6 @@
 
 #include <mono.h>
 
-extern "C" {
-extern void setup();
-extern void loop();
-}
-
 class AppController : public mono::IApplication, mono::IRunLoopTask {
 protected:
 	

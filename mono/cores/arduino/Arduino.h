@@ -41,10 +41,11 @@
 extern "C"{
 #endif // __cplusplus
 
-// Includes Atmel CMSIS
-//#include <chip.h>
 
-//#include "wiring_constants.h"
+inline void delay(unsigned long ms) { wait_ms(ms); }
+
+
+
 
 #define clockCyclesPerMicrosecond() ( SystemCoreClock / 1000000L )
 #define clockCyclesToMicroseconds(a) ( ((a) * 1000L) / (SystemCoreClock / 1000L) )
@@ -69,6 +70,7 @@ extern void loop( void ) ;
 #elif defined (  __GNUC__  ) /* GCC CS */
     #define WEAK __attribute__ ((weak))
 #endif
+
 
 #ifdef __cplusplus
 }

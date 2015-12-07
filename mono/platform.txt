@@ -5,6 +5,7 @@ optimization=-O0
 
 ccFlags=-c -g -Wall -mcpu=cortex-m3 -mthumb {optimization} -mthumb-interwork -fno-common -fmessage-length=0 -ffunction-sections -fdata-sections -march=armv7-m
 sysLibs=-lstdc++ -lsupc++ -lm -lc -lgcc -lnosys
+ldFlags= -g -mcpu=cortex-m3 -mthumb -march=armv7-m -fno-rtti -Wl,--gc-sections -specs=nano.specs 
 
 monoPath={runtime.platform.path}/cores/arduino/mono/include
 includeMbed=-I{monoPath}/mbed -I{monoPath}/mbed/api -I{monoPath}/mbed/hal -I{monoPath}/mbed/target_cypress
@@ -57,7 +58,7 @@ recipe.S.o.pattern="{compiler.path}{compiler.S.cmd}" {compiler.c.flags} -DARDUIN
 recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} "{build.path}/{archive_file}" "{object_file}"
 
 ## Combine gc-sections, archives, and objects
-recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" -Wl,--start-group -o "{build.path}/{build.project_name}.elf" {object_files} {frameworks} {build.path}/{archive_file} -mthumb -march=armv7-m -mfix-cortex-m3-ldrd "-Wl,-Map,{build.path}/mono_project.map" -T {build.ldscript} -g -specs=nano.specs "-u\ _printf_float" {sysLibs} -Wl,--gc-sections -Wl,--end-group
+recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" -Wl,--start-group {ldFlags} -o "{build.path}/{build.project_name}.elf" {frameworks} {build.path}/{archive_file} {object_files} -mfix-cortex-m3-ldrd "-Wl,-Map,{build.path}/mono_project.map" -T {build.ldscript} -g "-u\ _printf_float" {sysLibs} -Wl,--gc-sections -Wl,--end-group
 
 # Size
 recipe.size.pattern="{compiler.path}{compiler.size.cmd}" -A "{build.path}/{build.project_name}.elf"

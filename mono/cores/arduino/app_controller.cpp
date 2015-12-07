@@ -7,6 +7,7 @@
 //
 
 #include "app_controller.h"
+#include "Arduino.h"
 
 void AppController::monoWakeFromReset()
 {
@@ -30,5 +31,5 @@ void AppController::monoWillGotoSleep()
 
 void AppController::monoWakeFromSleep()
 {
-	
+    setup();
 }
