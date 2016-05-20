@@ -18,8 +18,8 @@
 					},
 					"url": "http://localhost:8000/mono1.0.tar.bz2",
 					"archiveFileName": "mono1.0.tar.bz2",
-					"checksum": "MD5:edcdd8a439fefebfdaa772c306ec9ea9",
-					"size": "985634",
+					"checksum": "MD5:4e955487223568dbd973275398985b56",
+					"size": "1012738",
 					"boards": [
 						{"name": "Mono Basic"},
 						{"name": "Mono Wifi"},
