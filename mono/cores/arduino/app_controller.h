@@ -13,10 +13,20 @@
 
 class AppController : public mono::IApplication, mono::IRunLoopTask {
 protected:
-	
+
+    mono::ui::BackgroundView bg;
+    mono::ui::TextLabelView ard;
+    mbed::Ticker ardTimer;
+
 	void taskHandler();
     
 public:
+
+    AppController();
+
+    void ardTimerFire();
+
+    void ardTimerBlink();
     
     void monoWakeFromReset();
 

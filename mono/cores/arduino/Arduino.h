@@ -23,10 +23,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
 
-#include <mbed.h>
-#include <mono.h>
 
 // some libraries and sketches depend on this
 // AVR stuff, assuming Arduino.h or WProgram.h
@@ -41,17 +38,13 @@
 extern "C"{
 #endif // __cplusplus
 
-
+#include <wait_api.h>
 inline void delay(unsigned long ms) { wait_ms(ms); }
-
-
-
 
 #define clockCyclesPerMicrosecond() ( SystemCoreClock / 1000000L )
 #define clockCyclesToMicroseconds(a) ( ((a) * 1000L) / (SystemCoreClock / 1000L) )
 #define microsecondsToClockCycles(a) ( (a) * (SystemCoreClock / 1000000L) )
 
-void yield(void);
 
 /* sketch */
 extern void setup( void ) ;
@@ -75,5 +68,7 @@ extern void loop( void ) ;
 #ifdef __cplusplus
 }
 #endif
+
+#include "functions.h"
 
 #endif // Arduino_h
