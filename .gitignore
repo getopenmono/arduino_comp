@@ -5,3 +5,4 @@ mono/platform_sam.txt
 monoprog/*.app
 monoprog_win/*.dll
 monoprog_win/*.exe
+mono/cores/arduinoComp
