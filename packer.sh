@@ -1,0 +1,72 @@
+#!/bin/bash
+
+MONO_URL="http://10.0.41.190:8000"
+
+if [ $# -ne 5 ]; then
+	echo "Missing arguments! (${#})"
+	echo "Usage: $0 MONO_VERSION MONO_BZ2 MONOPROG_VERSION MAC_MONOPROG_BZ2 WIN_MONOPROG_BZ2"
+	exit
+fi
+
+MONO_VERSION=$1
+MONO_FILE=$2
+MONOPROG_VERSION=$3
+MAC_MONOPROG_FILE=$4
+WIN_MONOPROG_FILE=$5
+JSON_FILE="package_openmono_index.json"
+
+echo -e "Will update $JSON_FILE with:\n\
+	\tMono Framework version: $MONO_VERSION\n\
+	\tFile: $MONO_FILE\n\
+	\tMonoprog version: $MONOPROG_VERSION\n\
+	\tWindow file: $WIN_MONOPROG_FILE\n\
+	\tMac file: $MAC_MONOPROG_FILE"
+echo -e "\nContinue (y/n)?"
+read -r CONFIRM
+
+if [ $CONFIRM != "y" ]; then
+	exit
+fi
+
+JSON_TEMP=$JSON_FILE.$RANDOM
+TEMPLATE=$JSON_FILE.template
+
+MONO_HASH=`md5 $MONO_FILE | sed -n 's/.* = \(.*\)$/\1/p'`
+MONO_SIZE=`stat -f"%z" $MONO_FILE`
+
+MAC_MONOPROG_HASH=`md5 $MAC_MONOPROG_FILE | sed -n 's/.* = \(.*\)$/\1/p'`
+MAC_MONOPROG_SIZE=`stat -f"%z" $MAC_MONOPROG_FILE`
+
+WIN_MONOPROG_HASH=`md5 $WIN_MONOPROG_FILE | sed -n 's/.* = \(.*\)$/\1/p'`
+WIN_MONOPROG_SIZE=`stat -f"%z" $WIN_MONOPROG_FILE`
+
+cp $TEMPLATE $JSON_TEMP
+
+echo "Replacing Mono values in JSON file..."
+sed -i -e "s/MONO_VERSION/$MONO_VERSION/" $JSON_TEMP
+sed -i -e "s/MONO_NAME/$MONO_FILE/" $JSON_TEMP
+sed -i -e "s/MONO_MD5_HASH/$MONO_HASH/" $JSON_TEMP
+sed -i -e "s/MONO_SIZE/$MONO_SIZE/" $JSON_TEMP
+
+echo "Replacing Mac Monoprog values in JSON file..."
+sed -i -e "s/MONOPROG_VERSION/$MONOPROG_VERSION/" $JSON_TEMP
+
+sed -i -e "s/MAC_MONOPROG_NAME/$MAC_MONOPROG_FILE/" $JSON_TEMP
+sed -i -e "s/MAC_MONOPROG_MD5_HASH/$MAC_MONOPROG_HASH/" $JSON_TEMP
+sed -i -e "s/MAC_MONOPROG_SIZE/$MAC_MONOPROG_SIZE/" $JSON_TEMP
+
+echo "Replacing Win Monoprog values in JSON file..."
+sed -i -e "s/WIN_MONOPROG_NAME/$WIN_MONOPROG_FILE/" $JSON_TEMP
+sed -i -e "s/WIN_MONOPROG_MD5_HASH/$WIN_MONOPROG_HASH/" $JSON_TEMP
+sed -i -e "s/WIN_MONOPROG_SIZE/$WIN_MONOPROG_SIZE/" $JSON_TEMP
+
+echo "Inserting Server URL: $MONO_URL"
+sed -i -e "s#MONO_URL#$MONO_URL#" $JSON_TEMP
+
+mv $JSON_TEMP $JSON_FILE
+
+if [ -f $JSON_TEMP-e ]; then
+	rm $JSON_TEMP-e
+fi
+
+echo "Done!"

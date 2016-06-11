@@ -11,15 +11,15 @@
 				{
 					"name": "OpenMono",
 					"architecture": "mono",
-					"version": "0.8",
+					"version": "MONO_VERSION",
 					"category": "Contributed",
 					"help": {
 						"online": "http://community.openmono.com/"
 					},
-					"url": "http://10.0.41.190:8000/mono0.8.tar.bz2",
-					"archiveFileName": "mono0.8.tar.bz2",
-					"checksum": "MD5:8d167e70c77986c83c49ea51e89a0ba6",
-					"size": "1432962",
+					"url": "MONO_URL/mono0.8.tar.bz2",
+					"archiveFileName": "MONO_NAME",
+					"checksum": "MD5:MONO_MD5_HASH",
+					"size": "MONO_SIZE",
 					"boards": [
 						{"name": "Mono Basic"},
 						{"name": "Mono Wifi"},
@@ -35,21 +35,21 @@
 			"tools": [
 				{
 					"name": "monoprog",
-					"version": "0.7",
+					"version": "MONOPROG_VERSION",
 					"systems": [
 						{
 							"host": "x86_64-apple-darwin",
-							"url": "http://10.0.41.190:8000/monoprog-mac0.7.tar.bz2",
-							"archiveFileName": "monoprog-mac0.7.tar.bz2",
-							"checksum": "MD5:5a4d1510ee747578a01c23d9efbc87ca",
-							"size": "2510177"
+							"url": "MONO_URL/MAC_MONOPROG_NAME",
+							"archiveFileName": "MAC_MONOPROG_NAME",
+							"checksum": "MD5:MAC_MONOPROG_MD5_HASH",
+							"size": "MAC_MONOPROG_SIZE"
 						},
 						{
 							"host": "i686-mingw32",
-							"url": "http://10.0.41.190:8000/monoprog_win0.7.tar.bz2",
-							"archiveFileName": "monoprog_win0.7.tar.bz2",
-							"checksum": "MD5:e909ac6a48bb8850c6b532bd9760c2ae",
-							"size": "11205545"
+							"url": "MONO_URL/WIN_MONOPROG_NAME",
+							"archiveFileName": "WIN_MONOPROG_NAME",
+							"checksum": "MD5:WIN_MONOPROG_MD5_HASH",
+							"size": "WIN_MONOPROG_SIZE"
 						}
 					]
 				}
