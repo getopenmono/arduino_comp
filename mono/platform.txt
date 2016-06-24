@@ -9,7 +9,7 @@ ldFlags= -g -mcpu=cortex-m3 -mthumb -march=armv7-m -fno-rtti -Wl,--gc-sections -
 
 monoPath={runtime.platform.path}/cores/arduino/mono/include
 includeMbed=-I{monoPath}/mbed -I{monoPath}/mbed/api -I{monoPath}/mbed/hal -I{monoPath}/mbed/target_cypress
-monoIncludes={includeMbed} -I{monoPath}/ -I{monoPath}/display -I{monoPath}/display/ui -I{monoPath}/display/ili9225g -I{monoPath}/media -I{monoPath}/wireless -I{runtime.platform.path}/arduino
+monoIncludes={includeMbed} -I{monoPath} -I{monoPath}/display -I{monoPath}/display/ui -I{monoPath}/display/ili9225g -I{monoPath}/media -I{monoPath}/wireless -I{runtime.platform.path}/arduino
 
 frameworks={runtime.platform.path}/cores/arduino/mono/monoCyLib.a {runtime.platform.path}/cores/arduino/mono/CyComponentLibrary.a {runtime.platform.path}/cores/arduino/mono/mbedlib.a {runtime.platform.path}/cores/arduino/mono/mono_framework.a
 
@@ -55,7 +55,7 @@ recipe.cpp.o.pattern="{compiler.path}{compiler.cpp.cmd}" {compiler.cpp.flags} -D
 recipe.S.o.pattern="{compiler.path}{compiler.S.cmd}" {compiler.c.flags} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} {build.extra_flags} {monoIncludes} "{source_file}" -o "{object_file}"
 
 ## Create archives
-recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} "{build.path}/{archive_file}" "{object_file}"
+recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} "{archive_file_path}" "{object_file}"
 
 ## Combine gc-sections, archives, and objects
 recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" -Wl,--start-group {ldFlags} -o "{build.path}/{build.project_name}.elf" {frameworks} {build.path}/{archive_file} {object_files} -mfix-cortex-m3-ldrd "-Wl,-Map,{build.path}/mono_project.map" -T {build.ldscript} -g "-u\ _printf_float" {sysLibs} -Wl,--gc-sections -Wl,--end-group
@@ -67,8 +67,8 @@ recipe.size.regex=\.text\s+([0-9]+).*
 # MONOPROG
 
 tools.monoprog.path={runtime.tools.monoprog.path}
-tools.monoprog.cmd=run.sh
-tools.monoprog.cmd.windows=run.bat
+tools.monoprog.cmd=monoprog.app/Contents/MacOS/monoprog
+tools.monoprog.cmd.windows=monoprog.exe
 tools.monoprog.upload.params.verbose=1
 tools.monoprog.upload.params.quiet=0
 tools.monoprog.upload.pattern="{path}/{cmd}" {runtime.tools.monoprog.path} --verbose={upload.verbose} -p "{build.path}/{build.project_name}.elf"

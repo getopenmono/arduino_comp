@@ -14,9 +14,9 @@
 					"version": "MONO_VERSION",
 					"category": "Contributed",
 					"help": {
-						"online": "http://community.openmono.com/"
+						"online": "https://community.openmono.com/category/8/arduino"
 					},
-					"url": "MONO_URL/mono0.8.tar.bz2",
+					"url": "MONO_URL/MONO_NAME",
 					"archiveFileName": "MONO_NAME",
 					"checksum": "MD5:MONO_MD5_HASH",
 					"size": "MONO_SIZE",
@@ -27,7 +27,29 @@
 					],
 					"toolsDependencies": [
 						{ "packager": "arduino", "name": "arm-none-eabi-gcc", "version": "4.8.3-2014q1" },
-						{"packager": "OpenMono", "name": "monoprog", "version": "0.7"}
+						{"packager": "OpenMono", "name": "monoprog", "version": "MONOPROG_VERSION"}
+					]
+				},
+				{
+					"name": "OpenMono",
+					"architecture": "mono",
+					"version": "0.8",
+					"category": "Contributed",
+					"help": {
+						"online": "http://community.openmono.com/"
+					},
+					"url": "https://github.com/getopenmono/arduino_comp/releases/download/0.8/mono0.8.tar.bz2",
+					"archiveFileName": "mono0.8.tar.bz2",
+					"checksum": "MD5:8d167e70c77986c83c49ea51e89a0ba6",
+					"size": "1432962",
+					"boards": [
+						{"name": "Mono Basic"},
+						{"name": "Mono Wifi"},
+						{"name": "Mono Maker"}
+					],
+					"toolsDependencies": [
+						{ "packager": "arduino", "name": "arm-none-eabi-gcc", "version": "4.8.3-2014q1" },
+						{"packager": "OpenMono", "name": "monoprog", "version": "0.71"}
 					]
 				}
 			],
@@ -50,6 +72,26 @@
 							"archiveFileName": "WIN_MONOPROG_NAME",
 							"checksum": "MD5:WIN_MONOPROG_MD5_HASH",
 							"size": "WIN_MONOPROG_SIZE"
+						}
+					]
+				},
+				{
+					"name": "monoprog",
+					"version": "0.71",
+					"systems": [
+						{
+							"host": "x86_64-apple-darwin",
+							"url": "https://github.com/getopenmono/arduino_comp/releases/download/0.8/monoprog-mac0.7.tar.bz2",
+							"archiveFileName": "monoprog-mac0.7.tar.bz2",
+							"checksum": "MD5:5a4d1510ee747578a01c23d9efbc87ca",
+							"size": "2510177"
+						},
+						{
+							"host": "i686-mingw32",
+							"url": "https://github.com/getopenmono/arduino_comp/releases/download/0.8/monoprog_win0.71.tar.bz2",
+							"archiveFileName": "monoprog_win0.71.tar.bz2",
+							"checksum": "MD5:d115eeccb9f93d0f27d034fff383e314",
+							"size": "2687398"
 						}
 					]
 				}

@@ -16,25 +16,21 @@ protected:
 
     mono::ui::BackgroundView bg;
     mono::ui::TextLabelView ard;
-    mbed::Ticker ardTimer;
-
-	void taskHandler();
+    
+    void taskHandler();
     
 public:
 
+    static AppController *ArduinoAppController;
+
     AppController();
 
-    void ardTimerFire();
-
-    void ardTimerBlink();
-    
     void monoWakeFromReset();
 
     void monoWillGotoSleep();
 
     void monoWakeFromSleep();
-    
-    
+
 };
 
 #endif /* app_controller_h */

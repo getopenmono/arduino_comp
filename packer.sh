@@ -1,26 +1,28 @@
 #!/bin/bash
 
-MONO_URL="http://10.0.41.190:8000"
+MONO_URL="https://github.com/getopenmono/arduino_comp/releases/download/"
 
 if [ $# -ne 5 ]; then
 	echo "Missing arguments! (${#})"
-	echo "Usage: $0 MONO_VERSION MONO_BZ2 MONOPROG_VERSION MAC_MONOPROG_BZ2 WIN_MONOPROG_BZ2"
+	echo "Usage: $0 RELEASE_TAG_VERSION MONO_BZ2 MONOPROG_VERSION MAC_MONOPROG_BZ2 WIN_MONOPROG_BZ2"
 	exit
 fi
 
-MONO_VERSION=$1
+RELEASE_VERSION=$1
 MONO_FILE=$2
 MONOPROG_VERSION=$3
 MAC_MONOPROG_FILE=$4
 WIN_MONOPROG_FILE=$5
 JSON_FILE="package_openmono_index.json"
+RELEASE_URL="$MONO_URL$RELEASE_VERSION"
 
 echo -e "Will update $JSON_FILE with:\n\
-	\tMono Framework version: $MONO_VERSION\n\
+	\tMono Framework version: $RELEASE_VERSION\n\
 	\tFile: $MONO_FILE\n\
 	\tMonoprog version: $MONOPROG_VERSION\n\
 	\tWindow file: $WIN_MONOPROG_FILE\n\
-	\tMac file: $MAC_MONOPROG_FILE"
+	\tMac file: $MAC_MONOPROG_FILE\n
+	\tRelease URL: $RELEASE_URL"
 echo -e "\nContinue (y/n)?"
 read -r CONFIRM
 
@@ -43,7 +45,7 @@ WIN_MONOPROG_SIZE=`stat -f"%z" $WIN_MONOPROG_FILE`
 cp $TEMPLATE $JSON_TEMP
 
 echo "Replacing Mono values in JSON file..."
-sed -i -e "s/MONO_VERSION/$MONO_VERSION/" $JSON_TEMP
+sed -i -e "s/MONO_VERSION/$RELEASE_VERSION/" $JSON_TEMP
 sed -i -e "s/MONO_NAME/$MONO_FILE/" $JSON_TEMP
 sed -i -e "s/MONO_MD5_HASH/$MONO_HASH/" $JSON_TEMP
 sed -i -e "s/MONO_SIZE/$MONO_SIZE/" $JSON_TEMP
@@ -60,8 +62,8 @@ sed -i -e "s/WIN_MONOPROG_NAME/$WIN_MONOPROG_FILE/" $JSON_TEMP
 sed -i -e "s/WIN_MONOPROG_MD5_HASH/$WIN_MONOPROG_HASH/" $JSON_TEMP
 sed -i -e "s/WIN_MONOPROG_SIZE/$WIN_MONOPROG_SIZE/" $JSON_TEMP
 
-echo "Inserting Server URL: $MONO_URL"
-sed -i -e "s#MONO_URL#$MONO_URL#" $JSON_TEMP
+echo "Inserting Server URL: $RELEASE_URL"
+sed -i -e "s#MONO_URL#$RELEASE_URL#" $JSON_TEMP
 
 mv $JSON_TEMP $JSON_FILE
 
