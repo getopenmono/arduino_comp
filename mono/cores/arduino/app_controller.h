@@ -12,14 +12,12 @@
 #include <mono.h>
 
 class AppController : public mono::IApplication, mono::IRunLoopTask {
-protected:
+public:
 
     mono::ui::BackgroundView bg;
     mono::ui::TextLabelView ard;
     
     void taskHandler();
-    
-public:
 
     static AppController *ArduinoAppController;
 
