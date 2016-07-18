@@ -15,7 +15,6 @@
  */
 
 /// MARK: Digital IO
-#include "Pins.h"
 #include "wiring_constants.h"
 #include "wiring_digital.h"
 

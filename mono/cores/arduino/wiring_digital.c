@@ -3,7 +3,6 @@
 #include <gpio_api.h>
 #include "wiring_digital.h"
 #include "wiring_constants.h"
-#include "Pins.h"
 
 int digiPins[14] = {
     D0,
