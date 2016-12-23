@@ -29,7 +29,7 @@ echo "Building Arduino software package v$VERSION..."
 mkdir $DEST
 cp -RP $SOURCE $DEST/.
 echo "Removing symlinks..."
-rm `find $DEST -mindepth 1 -type l -print0`
+#rm `find $DEST -mindepth 1 -type l -print0`
 cp -R $MONO_FRMWRK $DEST/$SOURCE/$SRC_MONO_POSITION
 echo "Removing hidden files..."
 

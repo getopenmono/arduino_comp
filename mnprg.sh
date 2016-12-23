@@ -8,6 +8,6 @@ fi
 
 VERSION=$1
 SOURCE=$2
-TARGET="$SOURCE$VERSION.tar.bz2"
+TARGET="$(basename $SOURCE)$VERSION.tar.bz2"
 
 tar -cjf $TARGET $SOURCE
