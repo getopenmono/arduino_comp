@@ -7,3 +7,5 @@ monoprog_win/*.dll
 monoprog_win/*.exe
 mono/cores/arduinoComp
 package_openmono_index.json
+
+mono_framework/

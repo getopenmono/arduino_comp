@@ -39,13 +39,13 @@ fi
 JSON_TEMP=$JSON_FILE.$RANDOM
 TEMPLATE=$JSON_FILE.template
 
-MONO_HASH=`md5 $MONO_FILE | sed -n 's/.* = \(.*\)$/\1/p'`
+MONO_HASH=`md5sum $MONO_FILE | sed "s/  $MONO_FILE//"`
 MONO_SIZE=`stat -f"%z" $MONO_FILE`
 
-MAC_MONOPROG_HASH=`md5 $MAC_MONOPROG_FILE | sed -n 's/.* = \(.*\)$/\1/p'`
+MAC_MONOPROG_HASH=`md5sum $MAC_MONOPROG_FILE | sed "s/  $MAC_MONOPROG_FILE//"`
 MAC_MONOPROG_SIZE=`stat -f"%z" $MAC_MONOPROG_FILE`
 
-WIN_MONOPROG_HASH=`md5 $WIN_MONOPROG_FILE | sed -n 's/.* = \(.*\)$/\1/p'`
+WIN_MONOPROG_HASH=`md5sum $WIN_MONOPROG_FILE | sed "s/  $WIN_MONOPROG_FILE//"`
 WIN_MONOPROG_SIZE=`stat -f"%z" $WIN_MONOPROG_FILE`
 
 cp $TEMPLATE $JSON_TEMP
