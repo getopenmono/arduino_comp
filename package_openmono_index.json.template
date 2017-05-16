@@ -33,6 +33,50 @@
 				{
 					"name": "OpenMono",
 					"architecture": "mono",
+					"version": "1.6.1",
+					"category": "Contributed",
+					"help": {
+						"online": "https://community.openmono.com/category/8/arduino"
+					},
+					"url": "https://github.com/getopenmono/arduino_comp/releases/download/1.6.1/mono1.6.1.tar.bz2",
+					"archiveFileName": "mono1.6.1.tar.bz2",
+					"checksum": "MD5:f5b656390fc5dee23d421e0bdb4052d0",
+					"size": "1795067",
+					"boards": [
+						{"name": "Mono Basic"},
+						{"name": "Mono Wifi"},
+						{"name": "Mono Maker"}
+					],
+					"toolsDependencies": [
+						{ "packager": "arduino", "name": "arm-none-eabi-gcc", "version": "4.8.3-2014q1" },
+						{"packager": "OpenMono", "name": "monoprog", "version": "0.9.3"}
+					]
+				},
+				{
+					"name": "OpenMono",
+					"architecture": "mono",
+					"version": "1.5",
+					"category": "Contributed",
+					"help": {
+						"online": "https://community.openmono.com/category/8/arduino"
+					},
+					"url": "https://github.com/getopenmono/arduino_comp/releases/download/1.5/mono1.5.0.tar.bz2",
+					"archiveFileName": "mono1.5.0.tar.bz2",
+					"checksum": "MD5:ff4b6c2e625dce724206e772106247fd",
+					"size": "1549189",
+					"boards": [
+						{"name": "Mono Basic"},
+						{"name": "Mono Wifi"},
+						{"name": "Mono Maker"}
+					],
+					"toolsDependencies": [
+						{ "packager": "arduino", "name": "arm-none-eabi-gcc", "version": "4.8.3-2014q1" },
+						{"packager": "OpenMono", "name": "monoprog", "version": "0.9.3"}
+					]
+				},
+				{
+					"name": "OpenMono",
+					"architecture": "mono",
 					"version": "1.1",
 					"category": "Contributed",
 					"help": {
@@ -138,6 +182,26 @@
 							"archiveFileName": "WIN_MONOPROG_NAME",
 							"checksum": "MD5:WIN_MONOPROG_MD5_HASH",
 							"size": "WIN_MONOPROG_SIZE"
+						}
+					]
+				},
+				{
+					"name": "monoprog",
+					"version": "0.8",
+					"systems": [
+						{
+							"host": "x86_64-apple-darwin",
+							"url": "https://github.com/getopenmono/arduino_comp/releases/download/1.1/monoprog0.8.tar.bz2",
+							"archiveFileName": "monoprog0.8.tar.bz2",
+							"checksum": "MD5:139c3a9e87bc0ad8509d1e5da062a7e6",
+							"size": "4893291"
+						},
+						{
+							"host": "i686-mingw32",
+							"url": "https://github.com/getopenmono/arduino_comp/releases/download/1.1/monoprog_win0.8.tar.bz2",
+							"archiveFileName": "monoprog_win0.8.tar.bz2",
+							"checksum": "MD5:4d42d1ad3ae898636b210ff4b731a223",
+							"size": "2719033"
 						}
 					]
 				},

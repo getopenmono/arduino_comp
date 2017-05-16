@@ -13,9 +13,6 @@
 
 class AppController : public mono::IApplication, mono::IRunLoopTask {
 public:
-
-    mono::ui::BackgroundView bg;
-    mono::ui::TextLabelView ard;
     
     void taskHandler();
 

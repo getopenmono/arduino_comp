@@ -10,4 +10,4 @@ VERSION=$1
 SOURCE=$2
 TARGET="$(basename $SOURCE)$VERSION.tar.bz2"
 
-tar -cjf $TARGET $SOURCE
+tar -cjf $TARGET -C . --exclude "*.DS_*" $SOURCE 

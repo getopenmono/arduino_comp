@@ -12,7 +12,7 @@ MONO_FRMWRK=$2
 SOURCE=mono
 SRC_MONO_POSITION=cores/arduino/mono
 NAME="mono$VERSION.tar.bz2"
-EXCLUDE="--exclude arduino_org --exclude arduinoComp --exclude .DS_Store"
+EXCLUDE="--exclude arduino_org --exclude arduinoComp --exclude .DS_Store --exclude ._*"
 JSON_FILE="package_openmono_index.json"
 
 if [ ! -d $MONO_FRMWRK ]; then
