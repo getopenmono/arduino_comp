@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Writes a new json file for the Arduino Board Manager
+# this creates a new 'package_openmono_index.json' file that contains a new release
+# specification.w
+
 MONO_URL="https://github.com/getopenmono/arduino_comp/releases/download/"
 
 if [ $# -ne 5 ]; then

@@ -1,4 +1,6 @@
 #!/bin/bash
+# Takes a compiled release build of mono framework and packs it into a arduino compatible board taget
+# that include Arduino APIs and then compresses it into a bzip
 
 if [ $# -ne 2 ]; then
 	echo "Missing VERSION or FRAMEWORK argument! (${#})\n"
