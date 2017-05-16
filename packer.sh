@@ -6,7 +6,7 @@
 
 MONO_URL="https://github.com/getopenmono/arduino_comp/releases/download/"
 
-if [ $# -ne 5 ]; then
+if [ $# -lt 5 ]; then
 	echo "Missing arguments! (${#})"
 	echo "Usage: $0 RELEASE_TAG_VERSION MONO_BZ2 MONOPROG_VERSION MAC_MONOPROG_BZ2 WIN_MONOPROG_BZ2"
 	exit
@@ -17,6 +17,7 @@ MONO_FILE=$2
 MONOPROG_VERSION=$3
 MAC_MONOPROG_FILE=$4
 WIN_MONOPROG_FILE=$5
+YES_TO_ALL=$6
 JSON_FILE="package_openmono_index.json"
 RELEASE_URL="$MONO_URL$RELEASE_VERSION"
 
@@ -27,11 +28,12 @@ echo -e "Will update $JSON_FILE with:\n\
 	\tWindow file: $WIN_MONOPROG_FILE\n\
 	\tMac file: $MAC_MONOPROG_FILE\n
 	\tRelease URL: $RELEASE_URL"
-echo -e "\nContinue (y/n)?"
-read -r CONFIRM
-
-if [ $CONFIRM != "y" ]; then
-	exit
+if [ $YES_TO_ALL != "-y" ]; then
+	echo -e "\nContinue (y/n)?"
+	read -r CONFIRM
+	if [ $CONFIRM != "y" ]; then
+		exit
+	fi
 fi
 
 JSON_TEMP=$JSON_FILE.$RANDOM
