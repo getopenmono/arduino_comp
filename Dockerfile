@@ -1,5 +1,9 @@
 FROM monolit/monofrm
 MAINTAINER Kristoffer Andersen <ka@openmono.com>
+RUN export GCC_DIR="$HOME/gcc-arm-none-eabi-4_8-2014q1" && \
+  export GCC_ARCHIVE="$HOME/gcc-arm-none-eabi-4_8-2014q1-20140314-linux.tar.bz2" && \
+  export GCC_URL="https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q1-update/+download/gcc-arm-none-eabi-4_8-2014q1-20140314-linux.tar.bz2" && \
+  wget $GCC_URL -O $GCC_ARCHIVE; tar xfvj $GCC_ARCHIVE -C $HOME
 ENV ARDUINO_URL "https://github.com/getopenmono/arduino_comp.git"
 ENV MONOPROG_RELEASE 0.9.3
 ENV MONOPROG_MAC_URL "https://github.com/getopenmono/arduino_comp/releases/download/1.6.1/monoprog0.9.3.tar.bz2"
@@ -7,7 +11,10 @@ ENV MONOPROG_WIN_URL "https://github.com/getopenmono/arduino_comp/releases/downl
 ENV ARDUINO_BRANCH master
 ENV FRAMEWORK_BRANCH master
 ENV MONOPROG_BRANCH master
-CMD export PATH=$PATH:$HOME/gcc-arm-none-eabi-5_2-2015q4/bin && \
+CMD export PATH=$PATH:$HOME/gcc-arm-none-eabi-4_8-2014q1/bin && \
+  if [ $TRAVIS_BRANCH ]; then ARDUINO_BRANCH=$TRAVIS_BRANCH; fi && \
+  echo "Using branch: $ARDUINO_BRANCH" && \
   git clone -b $ARDUINO_BRANCH $ARDUINO_URL && \
   cd arduino_comp && \
+  if [ $TRAVIS_COMMIT ]; then echo "Using commit: $TRAVIS_COMMIT"; git checkout -qf $TRAVIS_COMMIT; fi && \
   bash build_release.sh $RELEASE_VERSION
