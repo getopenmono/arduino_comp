@@ -19,7 +19,7 @@
 #include "wiring_digital.h"
 
 /// MARK: Analog IO
-
+#include "wiring_analog.h"
 
 /// MARK: Advanced IO
 

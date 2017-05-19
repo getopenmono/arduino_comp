@@ -4,7 +4,7 @@
 #include "wiring_digital.h"
 #include "wiring_constants.h"
 
-int digiPins[14] = {
+int digiPins[20] = {
     D0,
     D1,
     D2,
@@ -18,7 +18,13 @@ int digiPins[14] = {
     D10,
     D11,
     D12,
-    D13
+    D13,
+    A0,
+    A1,
+    A2,
+    A3,
+    A4,
+    A5
 };
 
 void pinMode( uint32_t dwPin, uint32_t dwMode )
