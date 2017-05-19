@@ -1,0 +1,1 @@
+docker run -tie RELEASE_VERSION=1.6.7 -e DEPLOY_DIR=/Desktop -v $HOME/Desktop:/Desktop monolit/arduinobuild
