@@ -9,6 +9,7 @@ if [ ! $FRAMEWORK_BRANCH ]; then FRAMEWORK_BRANCH="master"; fi
 if [ ! $MONOPROG_RELEASE ]; then MONOPROG_RELEASE="0.9.3"; fi
 if [ ! $MONOPROG_MAC_URL ]; then MONOPROG_MAC_URL="https://github.com/getopenmono/arduino_comp/releases/download/1.6.1/monoprog0.9.3.tar.bz2"; fi
 if [ ! $MONOPROG_WIN_URL ]; then MONOPROG_WIN_URL="https://github.com/getopenmono/arduino_comp/releases/download/1.6.1/monoprog_win0.9.3.tar.bz2"; fi
+if [ ! $INCLUDE_EDU ]; then INCLUDE_EDU="yes"; fi
 
 if [ $# -lt 1 ]; then
 	echo "Not enough arguments!"
@@ -75,6 +76,14 @@ MONO_FILENAME=${MONO_FRM_URL##*/}
 MONO_DIR=${MONO_FILENAME%.*}
 echo "loading mono framework ($FRAMEWORK_BRANCH) $MONO_FRM_URL -> $MONO_DIR"
 cloneOrUpdate $MONO_FRM_URL $FRAMEWORK_BRANCH || exit 1
+
+if [ $INCLUDE_EDU == "yes" ]; then
+	echo "Including education assignments in framework build..."
+	bash include_edu.sh || exit 1
+else
+	echo "Not including education files in release!"
+fi
+
 echo "building framework..."
 cd $MONO_DIR && \
 gitRevision && \
