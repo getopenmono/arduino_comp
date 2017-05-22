@@ -27,7 +27,7 @@ function cloneOrUpdate {
 	fi
 }
 cd $MONO_DIR/src
-cloneOrUpdate $EDU_PROJECTS_REPO $EDU_PROJECTS_BRANCH || cd ../.. && exit 1
+cloneOrUpdate $EDU_PROJECTS_REPO $EDU_PROJECTS_BRANCH || exit 1
 EDU_REPONAME=${EDU_PROJECTS_REPO##*/}
 EDU_DIRNAME=${EDU_REPONAME%.*}
 cd $EDU_DIRNAME && node ./augment_makefile.js ../../Makefile && cd .. || exit 1
