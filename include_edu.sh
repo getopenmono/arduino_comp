@@ -10,7 +10,7 @@ if [ ! -d $MONO_DIR ]; then
 	exit 1
 fi
 
-if [ ! hash node 2> /dev/null ]; then
+if ! hash node 2> /dev/null; then
 	echo "Node.js does not seem to be installed!"
 	exit 1
 fi

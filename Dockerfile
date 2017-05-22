@@ -4,6 +4,9 @@ RUN export GCC_DIR="$HOME/gcc-arm-none-eabi-4_8-2014q1" && \
   export GCC_ARCHIVE="$HOME/gcc-arm-none-eabi-4_8-2014q1-20140314-linux.tar.bz2" && \
   export GCC_URL="https://launchpad.net/gcc-arm-embedded/4.8/4.8-2014-q1-update/+download/gcc-arm-none-eabi-4_8-2014q1-20140314-linux.tar.bz2" && \
   wget $GCC_URL -O $GCC_ARCHIVE; tar xfvj $GCC_ARCHIVE -C $HOME
+RUN apt-get update -qq && apt-get install -y curl && \
+  curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
+  apt-get install -y nodejs
 ENV ARDUINO_URL "https://github.com/getopenmono/arduino_comp.git"
 ENV MONOPROG_RELEASE 0.9.3
 ENV MONOPROG_MAC_URL "https://github.com/getopenmono/arduino_comp/releases/download/1.6.1/monoprog0.9.3.tar.bz2"
