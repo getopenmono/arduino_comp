@@ -7,8 +7,8 @@ if [ ! $MONOPROG_URL ]; then MONOPROG_URL="https://github.com/getopenmono/monopr
 if [ ! $JSON_TEMPLATE ]; then JSON_TEMPLATE="package_openmono_index.json"; fi
 if [ ! $FRAMEWORK_BRANCH ]; then FRAMEWORK_BRANCH="master"; fi
 if [ ! $MONOPROG_RELEASE ]; then MONOPROG_RELEASE="0.9.3"; fi
-if [ ! $MONOPROG_MAC_URL ]; then MONOPROG_MAC_URL="https://github.com/getopenmono/arduino_comp/releases/download/1.6.1/monoprog0.9.3.tar.bz2"; fi
-if [ ! $MONOPROG_WIN_URL ]; then MONOPROG_WIN_URL="https://github.com/getopenmono/arduino_comp/releases/download/1.6.1/monoprog_win0.9.3.tar.bz2"; fi
+if [ ! $MONOPROG_MAC_URL ]; then MONOPROG_MAC_URL="https://github.com/getopenmono/arduino_comp/releases/download/1.7.0/monoprog0.9.3.tar.bz2"; fi
+if [ ! $MONOPROG_WIN_URL ]; then MONOPROG_WIN_URL="https://github.com/getopenmono/arduino_comp/releases/download/1.7.0/monoprog_win0.9.3.tar.bz2"; fi
 if [ ! $INCLUDE_EDU ]; then INCLUDE_EDU="yes"; fi
 
 if [ $# -lt 1 ]; then
