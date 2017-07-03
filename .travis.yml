@@ -1,0 +1,9 @@
+services: docker
+language: cpp
+branches:
+  only:
+    - production
+    - master
+script:
+  - mkdir release
+  - docker run -e RELEASE_VERSION=`git describe --tags --abbrev=0` -e DEPLOY_DIR=/Desktop -v `pwd`/release:/Desktop monolit/arduinobuild
