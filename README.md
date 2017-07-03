@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/getopenmono/arduino_comp.svg?branch=master)](https://travis-ci.org/getopenmono/arduino_comp)
+
 # Arduino Compability
 This repository contains the source code for Mono's Arduino compability layer, 
 that enable you to use Arduino famous `setup()` and `loop()` functions.
