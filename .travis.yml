@@ -4,6 +4,10 @@ branches:
   only:
   - production
   - master
+env:
+  - MONOPROG_NAME="monoprog0.9.3.1.tar.bz2"
+  - MONOPROG_WIN_NAME="monoprog_win0.9.3.1.tar.bz2"
+  - PACKAGE_JSON="package_openmono_index.json"
 script:
 - mkdir release
 - docker run -e RELEASE_VERSION=`git describe --tags --abbrev=0` -e DEPLOY_DIR=/Desktop
@@ -13,7 +17,11 @@ deploy:
   skip_cleanup: true
   api_key:
     secure: BaII6n9CFs+Ed9gIMKyUV0TPXAAhDCUf7tqt219TdH/22tdd4i/kbR5jxfooArn/esO/VfKuTyv6zVqsTEXgqGbs9VnZr/M0EaHfP5Br5wweDra08dYkakVWf7g6Q4UaWv9zfAPAqic3A2Dm4pPTCKu6vQtLwzFFNgtYa9rEEmHl5ufXLkRTWVkrxRgLrFZh2nN6rDNTungH+GZ+Z6FDmhkGvHi8pk9+RSyKXmUZqSqRKJ4kR5LIaP4lxFW6KBRIQyyTIEQECxIxCEWpqg/tdikN5gYyD3l1e4ocWUxxQmWGgkuAZwX9B3NlnDggzWNsa2iIeId3vhGcSRHgmxu2BH9F6GRuslv/tg5pwtuaU7p331afkzKDtX4iqnNGDMNyakaeEXNyodKCdC+C390A3kpxDgsHRLNCcFbMCkMxJXZmI8M5/YouqfXvSOlFTEMT6aIbnn+B5p14UkBDd1Zu6UT4yhoqSv6xjvVNjH3eGPS4tH2+74JGuNfs7s3xgTSwSZ98CRuCuyQKUuh6bNXe2SQMUm32c+kJIubK/hcN2MAw2+pbJlsxn8vu1YhXEeSYLhoqp4FiJ5Fy0P+QG1z7OBaVugXj+6zG7tAVFsisgHwfYXsers/0CxxVqzf+IBMv3Q+/rEJ3gpOmLeXxACc4JE3fwbrZsd8kRveyYZhW/qA=
-  file: release/mono$TRAVIS_TAG.tar.bz2
+  file: 
+    - release/mono$TRAVIS_TAG.tar.bz2
+    - release/$MONOPROG_NAME
+    - release/$MONOPROG_WIN_NAME
+    - release/$PACKAGE_JSON
   on:
     repo: getopenmono/arduino_comp
     tags: true
