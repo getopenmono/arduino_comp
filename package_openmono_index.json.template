@@ -33,6 +33,28 @@
 				{
 					"name": "OpenMono",
 					"architecture": "mono",
+					"version": "1.7.1",
+					"category": "Contributed",
+					"help": {
+						"online": "https://community.openmono.com/category/8/arduino"
+					},
+					"url": "https://github.com/getopenmono/arduino_comp/releases/download/1.7.1/mono1.7.1.tar.bz2",
+					"archiveFileName": "mono1.7.1.tar.bz2",
+					"checksum": "MD5:825365e337d77787ebccaea7827b711a",
+					"size": "1909254",
+					"boards": [
+						{"name": "Mono Basic"},
+						{"name": "Mono Wifi"},
+						{"name": "Mono Maker"}
+					],
+					"toolsDependencies": [
+						{ "packager": "arduino", "name": "arm-none-eabi-gcc", "version": "4.8.3-2014q1" },
+						{"packager": "OpenMono", "name": "monoprog", "version": "0.9.3.1"}
+					]
+				},
+				{
+					"name": "OpenMono",
+					"architecture": "mono",
 					"version": "1.7.0",
 					"category": "Contributed",
 					"help": {
@@ -226,6 +248,26 @@
 							"archiveFileName": "WIN_MONOPROG_NAME",
 							"checksum": "MD5:WIN_MONOPROG_MD5_HASH",
 							"size": "WIN_MONOPROG_SIZE"
+						}
+					]
+				},
+				{
+					"name": "monoprog",
+					"version": "0.9.3",
+					"systems": [
+						{
+							"host": "x86_64-apple-darwin",
+							"url": "https://github.com/getopenmono/arduino_comp/releases/download/1.6.1/monoprog0.9.3.tar.bz2",
+							"archiveFileName": "monoprog0.9.3.tar.bz2",
+							"checksum": "MD5:16b4c2727d5e5c5bc96150785501f9cd",
+							"size": "2488289"
+						},
+						{
+							"host": "i686-mingw32",
+							"url": "https://github.com/getopenmono/arduino_comp/releases/download/1.6.1/monoprog_win0.9.3.tar.bz2",
+							"archiveFileName": "monoprog_win0.9.3.tar.bz2",
+							"checksum": "MD5:47a4194dcebf9e782f14371769b2fb7b",
+							"size": "2120536"
 						}
 					]
 				},

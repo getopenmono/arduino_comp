@@ -12,7 +12,7 @@ ENV MONOPROG_RELEASE 0.9.3.1
 ENV MONOPROG_MAC_URL "https://github.com/getopenmono/arduino_comp/releases/download/1.7.0/monoprog0.9.3.1.tar.bz2"
 ENV MONOPROG_WIN_URL "https://github.com/getopenmono/arduino_comp/releases/download/1.7.0/monoprog_win0.9.3.1.tar.bz2"
 ENV ARDUINO_BRANCH master
-ENV FRAMEWORK_BRANCH master
+ENV FRAMEWORK_BRANCH production
 ENV MONOPROG_BRANCH master
 CMD export PATH=$PATH:$HOME/gcc-arm-none-eabi-4_8-2014q1/bin && \
   if [ $TRAVIS_BRANCH ]; then ARDUINO_BRANCH=$TRAVIS_BRANCH; fi && \
