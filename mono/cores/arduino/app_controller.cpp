@@ -1,13 +1,13 @@
-//
-//  app_controller.cpp
-//
-//
-//
-//  
-//
+
+
+#ifndef MONO_BYO_APP_CONTROLLER
 
 #include "app_controller.h"
 #include "Arduino.h"
+
+bool AppController::resetOnWake = true;
+mbed::FunctionPointer AppController::wakeUpHandler;
+mbed::FunctionPointer AppController::sleepHandler;
 
 AppController *AppController::ArduinoAppController = 0;
 
@@ -31,10 +31,16 @@ void AppController::taskHandler()
 
 void AppController::monoWillGotoSleep()
 {
-	
+    sleepHandler.call();
 }
 
 void AppController::monoWakeFromSleep()
 {
-    mono::IApplicationContext::SoftwareResetToApplication();
+    if (resetOnWake)
+        mono::IApplicationContext::SoftwareResetToApplication();
+	else
+        wakeUpHandler.call();
+
 }
+
+#endif /** BYO AppController */
