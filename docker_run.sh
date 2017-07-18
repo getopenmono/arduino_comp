@@ -17,4 +17,4 @@ fi
 	
 echo "Deploy files are copied to $DEPLOY_TARGET"
 echo "Using Frm branch: $FRAMEWORK_BRANCH"
-docker run -tie RELEASE_VERSION=$1 -e DEPLOY_DIR=/Desktop -e FRAMEWORK_BRANCH=$FRAMEWORK_BRANCH -v $DEPLOY_TARGET:/Desktop monolit/arduinobuild
+docker run -tie RELEASE_VERSION=$1 -e DEPLOY_DIR=/Desktop -e FRAMEWORK_BRANCH=$FRAMEWORK_BRANCH -v $DEPLOY_TARGET:/Desktop monolit/arduino

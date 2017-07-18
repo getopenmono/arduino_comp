@@ -1,4 +1,4 @@
-FROM monolit/monofrm
+FROM monolit/framework
 MAINTAINER Kristoffer Andersen <ka@openmono.com>
 RUN export GCC_DIR="$HOME/gcc-arm-none-eabi-4_8-2014q1" && \
   export GCC_ARCHIVE="$HOME/gcc-arm-none-eabi-4_8-2014q1-20140314-linux.tar.bz2" && \
