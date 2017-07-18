@@ -8,6 +8,13 @@ if [ $# -gt 1 ]; then
 else
 	DEPLOY_TARGET="$HOME/Desktop"
 fi
+
+if [ $# -gt 2 ]; then
+	FRAMEWORK_BRANCH=$3
+else
+	FRAMEWORK_BRANCH="production"
+fi
 	
 echo "Deploy files are copied to $DEPLOY_TARGET"
-docker run -tie RELEASE_VERSION=$1 -e DEPLOY_DIR=/Desktop -v $DEPLOY_TARGET:/Desktop monolit/arduinobuild
+echo "Using Frm branch: $FRAMEWORK_BRANCH"
+docker run -tie RELEASE_VERSION=$1 -e DEPLOY_DIR=/Desktop -e FRAMEWORK_BRANCH=$FRAMEWORK_BRANCH -v $DEPLOY_TARGET:/Desktop monolit/arduinobuild
