@@ -8,8 +8,8 @@ sysLibs=-lstdc++ -lsupc++ -lm -lc -lgcc -lnosys
 ldFlags= -g -mcpu=cortex-m3 -mthumb -march=armv7-m -fno-rtti -Wl,--gc-sections -specs=nano.specs 
 
 monoPath={runtime.platform.path}/cores/arduino/mono/include
-includeMbed=-I{monoPath}/mbed -I{monoPath}/mbed/api -I{monoPath}/mbed/hal -I{monoPath}/mbed/target_cypress
-monoIncludes={includeMbed} -I{monoPath} -I{monoPath}/display -I{monoPath}/io -I{monoPath}/display/ui -I{monoPath}/display/ili9225g -I{monoPath}/media -I{monoPath}/wireless -I{runtime.platform.path}/arduino
+includeMbed=-I{monoPath}/mbed -I{monoPath}/mbed/api -I{monoPath}/mbed/hal -I{monoPath}/mbed/target_cypress -I{monoPath}/mbed/libraries/fs/sd -I{monoPath}/mbed/libraries/fs/fat -I{monoPath}/mbed/libraries/fs/fat/ChaN
+monoIncludes={includeMbed} -I{monoPath} -I{monoPath}/display -I{monoPath}/io -I{monoPath}/display/ui -I{monoPath}/display/ili9225g -I{monoPath}/media -I{monoPath}/wireless -I{runtime.platform.path}/arduino -I{monoPath}/sensors -I{monoPath}/opgaver
 
 frameworks={runtime.platform.path}/cores/arduino/mono/monoCyLib.a {runtime.platform.path}/cores/arduino/mono/CyComponentLibrary.a {runtime.platform.path}/cores/arduino/mono/mbedlib.a {runtime.platform.path}/cores/arduino/mono/mono_framework.a
 
