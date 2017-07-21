@@ -33,6 +33,28 @@
 				{
 					"name": "OpenMono",
 					"architecture": "mono",
+					"version": "1.7.2",
+					"category": "Contributed",
+					"help": {
+						"online": "https://community.openmono.com/category/8/arduino"
+					},
+					"url": "https://github.com/getopenmono/arduino_comp/releases/download/1.7.2/mono1.7.2.tar.bz2",
+					"archiveFileName": "mono1.7.2.tar.bz2",
+					"checksum": "MD5:9fa1b899e03ced3609aef2fc2679357d",
+					"size": "1910182",
+					"boards": [
+						{"name": "Mono Basic"},
+						{"name": "Mono Wifi"},
+						{"name": "Mono Maker"}
+					],
+					"toolsDependencies": [
+						{ "packager": "arduino", "name": "arm-none-eabi-gcc", "version": "4.8.3-2014q1" },
+						{"packager": "OpenMono", "name": "monoprog", "version": "0.9.3.1"}
+					]
+				},
+				{
+					"name": "OpenMono",
+					"architecture": "mono",
 					"version": "1.7.1",
 					"category": "Contributed",
 					"help": {
