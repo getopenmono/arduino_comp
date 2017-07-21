@@ -19,8 +19,8 @@
   parsing functions based on TextFinder library by Michael Margolis
 */
 
-#ifndef Stream_h
-#define Stream_h
+#ifndef ard_Stream_h
+#define ard_Stream_h
 
 #include <inttypes.h>
 #include "Print.h"
@@ -88,8 +88,8 @@ class Stream : public Print
   // returns the number of characters placed in the buffer (0 means no valid data found)
 
   // Arduino String functions to be added here
-  String readString();
-  String readStringUntil(char terminator);
+  ::String readString();
+  ::String readStringUntil(char terminator);
 
   protected:
   long parseInt(char skipChar); // as above but the given skipChar is ignored

@@ -86,7 +86,7 @@ void detachInterrupt(uint32_t pin);
 
 /// MARK: Communication
 #ifdef __cplusplus
-#include "serial.h"
+#include "ard_serial.h"
 #endif
 
 #endif /* functions_h */

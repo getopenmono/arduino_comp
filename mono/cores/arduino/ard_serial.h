@@ -1,13 +1,13 @@
 
 
-#ifndef serial_h
-#define serial_h
+#ifndef ard_serial_h
+#define ard_serial_h
 
 #include "Print.h"
-#include "./Stream.h"
+#include "./ard_Stream.h"
 #include <stdint.h>
 
-class Serial_ : public Stream
+class Serial_ : public ::Stream
 {
 public:
     Serial_();
