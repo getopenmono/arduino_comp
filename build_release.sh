@@ -6,10 +6,11 @@ if [ ! $MONO_FRM_URL ]; then MONO_FRM_URL="https://github.com/getopenmono/mono_f
 if [ ! $MONOPROG_URL ]; then MONOPROG_URL="https://github.com/getopenmono/monoprog.git"; fi
 if [ ! $JSON_TEMPLATE ]; then JSON_TEMPLATE="package_openmono_index.json"; fi
 if [ ! $FRAMEWORK_BRANCH ]; then FRAMEWORK_BRANCH="master"; fi
-if [ ! $MONOPROG_RELEASE ]; then MONOPROG_RELEASE="0.9.3"; fi
-if [ ! $MONOPROG_MAC_URL ]; then MONOPROG_MAC_URL="https://github.com/getopenmono/arduino_comp/releases/download/1.7.0/monoprog0.9.3.tar.bz2"; fi
-if [ ! $MONOPROG_WIN_URL ]; then MONOPROG_WIN_URL="https://github.com/getopenmono/arduino_comp/releases/download/1.7.0/monoprog_win0.9.3.tar.bz2"; fi
+if [ ! $MONOPROG_RELEASE ]; then MONOPROG_RELEASE="0.9.3.1"; fi
+if [ ! $MONOPROG_MAC_URL ]; then MONOPROG_MAC_URL="https://github.com/getopenmono/arduino_comp/releases/download/1.7.2/monoprog0.9.3.1.tar.bz2"; fi
+if [ ! $MONOPROG_WIN_URL ]; then MONOPROG_WIN_URL="https://github.com/getopenmono/arduino_comp/releases/download/1.7.2/monoprog_win0.9.3.1.tar.bz2"; fi
 if [ ! $INCLUDE_EDU ]; then INCLUDE_EDU="yes"; fi
+if [ ! $RELEASE_TYPE ]; then RELEASE_TYPE="release"; fi
 
 if [ $# -lt 1 ]; then
 	echo "Not enough arguments!"
@@ -88,7 +89,7 @@ echo "building framework..."
 cd $MONO_DIR && \
 gitRevision && \
 bash resources/setup_icons.sh resources/icons.mk.tmp dist && \
-make release || exit 1
+make $RELEASE_TYPE || exit 1
 cd ..
 
 MONO_PACK_FILE="mono$RELEASE_VERSION.tar.bz2"

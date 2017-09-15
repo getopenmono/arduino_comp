@@ -14,6 +14,7 @@ ENV MONOPROG_WIN_URL "https://github.com/getopenmono/arduino_comp/releases/downl
 ENV ARDUINO_BRANCH master
 ENV FRAMEWORK_BRANCH production
 ENV MONOPROG_BRANCH master
+ENV FRM_RELEASE_TYPE release
 CMD export PATH=$PATH:$HOME/gcc-arm-none-eabi-4_8-2014q1/bin && \
   if [ $TRAVIS_BRANCH ]; then ARDUINO_BRANCH=$TRAVIS_BRANCH; fi && \
   echo "Using branch: $ARDUINO_BRANCH" && \

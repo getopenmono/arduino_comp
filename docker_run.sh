@@ -1,5 +1,5 @@
 if [ $# -lt 1 ]; then
-	echo "Not enough args! Usage: docker_run.sh VERSION [TARGET_DIR]"
+	echo "Not enough args! Usage: docker_run.sh VERSION [TARGET_DIR] [FRM_BRANCH]"
 	exit 1
 fi
 
